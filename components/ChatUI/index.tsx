@@ -1,14 +1,9 @@
 'use client';
 
 import { ChatBox } from './ChatBox';
-import { ModelProvider } from './ModelContext';
 
 const ChatUi = () => {
-  return (
-    <ModelProvider>
-      <ChatBox />
-    </ModelProvider>
-  );
+  return <ChatBox />;
 }; 
 
 export default ChatUi;

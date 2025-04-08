@@ -23,7 +23,7 @@ export const CodeHighlight = ({
   const highlightedCode = useShikiHighlighter(
     code,
     language,
-    'vitesse-dark',
+    'andromeeda',
   );
 
   const isInline = node && isInlineCode(node);

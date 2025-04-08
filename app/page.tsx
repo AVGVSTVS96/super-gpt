@@ -30,7 +30,7 @@ export default function Home() {
             href="/chat"
           >
             <Image
-              className="invert"
+              className="invert dark:invert-0"
               src="/message-circle.svg"
               alt="Chat icon"
               width={20}

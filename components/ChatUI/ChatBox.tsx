@@ -3,7 +3,6 @@
 import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card';
 import { useChat, type UseChatHelpers } from '@ai-sdk/react';
 import { ChatInput } from './ChatInput';
-import { ModelSelector } from './ModelSelector';
 import { ChatMessages } from './Messages';
 import { cn } from '@/lib/utils';
 import { useModelContext } from './ModelContext';
@@ -42,8 +41,7 @@ export const ChatBox = () => {
   });
 
   const styles: Record<string, string> = {
-    // 177px is the sum of the height of the header and footer
-    chatCardHeight: 'min-h-72 max-h-[calc(100dvh-177px)]',
+    chatCardHeight: 'min-h-72 h-[calc(100dvh-40px)]',
     chatCardWidth:
       'min-w-64 max-md:w-[calc(100dvw-4rem)] md:w-[clamp(700px,85vw,900px)]',
     headerText: 'hidden text-lg mt-2 font-bold leading-none tracking-tight xs:block',
@@ -52,17 +50,17 @@ export const ChatBox = () => {
   return (
     <Card
       className={cn(
-        'grid grid-rows-[auto_1fr_auto] rounded-2xl p-0',
+        // using -mt-14 to center chatbox with respect to topbar
+        'grid grid-rows-[auto_1fr_auto] rounded-2xl p-0 -mt-14 border-0',
         styles.chatCardHeight,
         styles.chatCardWidth
       )}>
-      <CardHeader className="flex flex-row justify-between py-3 px-4">
-        <ModelSelector />
+      <CardHeader className="flex flex-row justify-between py-0 px-4">
       </CardHeader>
-      <CardContent className="flex flex-col-reverse overflow-y-auto pb-0 pt-2">
+      <CardContent className="flex flex-col-reverse overflow-y-auto pb-0 pt-2 rounded-lg">
         <ChatMessages messages={messages} />
       </CardContent>
-      <CardFooter className="mt-6">
+      <CardFooter className="">
         <ChatInput
           isLoading={isLoading}
           stop={stop}
